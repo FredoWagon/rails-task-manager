@@ -1,0 +1,14 @@
+
+<div class="container">
+  <h1>Task List</h1>
+  <% @tasks.each do |task| %>
+  <%= link_to task.title, task_path(task) %>
+  <%= check_box("task", task.id, {checked: task.completed}) %>
+  <%= link_to 'Edit !', task_edit_path(task) %>
+  <%= link_to 'destroy', task_path(task),
+  method: :delete,
+  data: {confirm: "destroyed?"} %>
+
+  <% end %>
+  <%= link_to 'Add a new task', tasks_new_path %>
+</div>
